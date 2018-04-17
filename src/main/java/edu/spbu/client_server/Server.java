@@ -21,7 +21,7 @@ public class Server
             this.sc = clientSocket;
             this.inputStream = clientSocket.getInputStream();
             this.outputStream = clientSocket.getOutputStream();
-            this.fileName = "m1.txt";
+            this.fileName = "";
          }
     public void readInputStream() throws IOException
     {
@@ -36,7 +36,7 @@ public class Server
     }
     public void writeOutputStream() throws IOException
     {
-        File file = new File("m1.txt");
+        File file = new File(fileName);
         if (file.exists()) {
             String s = new String(Files.readAllBytes(Paths.get(fileName)));
             String response = "HTTP/1.1 200 OK\r\n" + "Content-Type:text/html\r\n\r\n" + s;
